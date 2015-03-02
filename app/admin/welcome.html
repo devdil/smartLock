@@ -19,12 +19,17 @@
 			.wrapper { width:900px; margin:0px auto; padding:15px;background-color:#eee; }
 			input { width:250px; border: 2px solid #CCC; line-height:20px;height:20px; border-radius:10px; padding:5px; }
 		</style>
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+	
+	
 	
   </head>
   
   <body>
     <div class="navbar navbar-default navbar-static-top navbar-inverse">
-      <div class="container">
+      
+	  <div class="container">
         <div class="navbar-header">
           <a type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"></a>
           <span class="sr-only">Toggle navigation</span>
@@ -42,12 +47,13 @@
         </div>
       </div>
     </div>
+	
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="btn-group btn-group-justified btn-group-vertical">
-            <a href="#" class="btn btn-primary">Home</a>
-            <a href="#" class="btn btn-primary">Invites</a>
+            <a href="welcome.html" class="btn btn-primary">Home</a>
+            <a href="invitees.html" class="btn btn-primary">Invites</a>
             <a href="#" class="btn btn-primary">Logs</a>
           </div>
         </div>
@@ -63,62 +69,68 @@
         </div>
       </div>
     </div>
+	<br>
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-12">
-            <h1 class="text-center" contenteditable="true">Turn your lock ON / OFF</h1>
+            <h1 class="text-center" contenteditable="true">Your Lock Status</h1>
             <div class="col-md-12 text-center">
               <div class="btn-group">
-                <a href="#" class="btn btn-danger btn-lg">On</a>
-                <a href="#" class="btn btn-lg btn-success">Off</a>
+                <input class = "toggle_btn" type="checkbox" checked data-toggle="toggle" data-size="large">
+
               </div>
             </div>
           </div>
           
         </div>
       </div>
+	  <br><br>
       <div class="row">
 	  <div class="well">
             <h2>Access Grant</h2>
             <p class="text-danger">Now you can allow access to your lock just by entering the contact number
               of the person.
               <br>Grant access for an hour, day or months.&nbsp;</p>
-          </div>
-        <div class="col-md-12" draggable="true" style="">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Send access control</h3>
-            </div>
-            <div class="panel-body">
-              
-			  <form role="form">
-                <div class="form-group" draggable="true">
-                  <input class="form-control" id="contactno" placeholder="Enter Contact Number"
-                  type="text">
-                </div>
-			  </form>	
-
-			  <form role="form">
-                <div class="form-group" draggable="true">
-                  <input class="form-control" id="name" placeholder="Enter Name"
-                  type="text">
-                </div>
-			  </form>	
 			  
-			  <form role="form">
-			  <p>Choose Access in date and Time</p>
-                <div class="form-group" draggable="true">
-                  <input type="text" class="basic_example_1" name="basic_example_1" placeholder="Choose date and time"/>
-                </div>
-			   </form>	
+			
+
+      </div>
+      </div>
+	  
+	  <div class="col-md-12" draggable="true" style="">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Send access control</h3>
+					</div>
+					
+					<div class="panel-body">
+              
+					<form role="form">
+						<div class="form-group" draggable="true">
+							<input class="form-control" id="contactno" placeholder="Enter Contact Number" type="text">
+						</div>
+					</form>	
+
+					<form role="form">
+						<div class="form-group" draggable="true">
+							<input class="form-control" id="name" placeholder="Enter Name" type="text">
+						</div>
+					</form>	
+			  
+					<form role="form">
+						<p>Choose Access in date and Time</p>
+							<div class="form-group" draggable="true">
+								<input type="text" class="basic_example_1" name="basic_example_1" placeholder="Choose date and time"/>
+							</div>
+					</form>	
 				
-			   <form role="form">
-			  <p>Choose Access out date and Time</p>
-                <div class="form-group" draggable="true">
-                  <input type="text" class="basic_example_1" name="basic_example_2" placeholder="Choose date and time"/>
-                </div>
-			   </form>
+					<form role="form">
+						<p>Choose Access out date and Time</p>
+						<div class="form-group" draggable="true">
+							<input type="text" class="basic_example_1" name="basic_example_2" placeholder="Choose date and time"/>
+						</div>
+					</form>
 			
 			
 							<!--loading jQuery and other library-->
@@ -128,16 +140,13 @@
 							<script type="text/javascript" src="jquery-ui-sliderAccess.js"></script>
 							<script type="text/javascript" src="script.js"></script>
 				
-                <button type="submit" class="btn btn-default">Submit</button>
+					<button type="submit" class="btn btn-default">Submit</button>
               
+					</div>
+				</div>
+			  
 			</div>
-	 	</div>
-		
-		
-            </div>
-          </div>
-        </div>
-      </div>
+	  
     </div>
   </body>
 
