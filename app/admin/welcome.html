@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-    rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
 	<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 		<link rel="stylesheet" media="all" type="text/css" href="jquery-ui-timepicker-addon.css" />
+		
+		
+		
 		<style type="text/css">
 			*{ font-size:12px; font-family:verdana; }
 			h1 { font-size:22px; }
 			.wrapper { width:900px; margin:0px auto; padding:15px;background-color:#eee; }
 			input { width:250px; border: 2px solid #CCC; line-height:20px;height:20px; border-radius:10px; padding:5px; }
 		</style>
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+		
+	
 	
 	
 	
@@ -74,11 +76,39 @@
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-12">
-            <h1 class="text-center" contenteditable="true">Your Lock Status</h1>
+            <h1 class="text-center" contenteditable="true">Your Lock Status :  <strong style="font-size:20px" class="text-primary" >Locked</strong></h1>
+			
+			<br>
             <div class="col-md-12 text-center">
               <div class="btn-group">
-                <input class = "toggle_btn" type="checkbox" checked data-toggle="toggle" data-size="large">
+               
+					<button type="button" class="btn btn-success btn-lg" id="led1onbutton"  onclick="switchLock(1)">Lock</button>
+					<button type="button" class="btn btn-danger btn-lg" id="led1offbutton"  onclick="switchLock(0)">Unlock</button>
+    
+					<script type="text/javascript">
+						var deviceID    = "53ff6e066667574838121267";
+						var accessToken = "5e598de5dc954dfd73d3ed5fb00240adf58bceec";
+						var setFunc = "lock";
 
+						function switchLock(controlStatus) 
+						{
+							var paramStr;
+							if (controlStatus == 1) 
+							{ 
+								paramStr = "ON";
+							} 
+							else 
+							{
+								paramStr = "OFF";
+							}
+							var requestURL = "https://api.spark.io/v1/devices/" +deviceID + "/" + setFunc + "/";
+							$.post( requestURL, { params: paramStr, access_token: accessToken });
+						}
+					</script>
+			   
+               
+			  </div>
+				
               </div>
             </div>
           </div>
