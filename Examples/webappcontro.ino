@@ -1,4 +1,4 @@
-//Servo myservo;  // create servo object to control a servo
+Servo myservo;  // create servo object to control a servo
 int led1 = D0;
 int led2 = D1;
 
@@ -8,9 +8,9 @@ void setup() {
   Spark.function("lock", lockControl);
   pinMode(led1,OUTPUT);
   pinMode(led2, OUTPUT);
-  //myservo.attach(A0);
+  myservo.attach(A0);
   digitalWrite(led1,LOW);
-  //digitalWrite(led2,HIGH);
+  digitalWrite(led2,HIGH);
 }
 
 // This routine gets called repeatedly, like once every 5-15 milliseconds.
@@ -31,18 +31,18 @@ int lockControl(String command)
    else return -1;
 
    // write to the appropriate pin
-   if (state == 1)
-   {
-   digitalWrite(led1, HIGH);
-   digitalWrite(led2,LOW);
-   //myservo.write(180);
-   return 0;
+    if (state == 1)
+    {
+        digitalWrite(led1, HIGH);
+        digitalWrite(led2,LOW);
+        myservo.write(180);
+        return 1;
     }
-     else if (state == 0)
-            {
-      digitalWrite(led2,HIGH);
-      digitalWrite(led1,LOW);
-      //myservo.write(0);
-      return 0;
-            }
+    else if (state == 0)
+    {
+        digitalWrite(led2,HIGH);
+        digitalWrite(led1,LOW);
+        myservo.write(0);
+        return 0;
+    }
 }
